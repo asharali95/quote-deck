@@ -1,0 +1,21 @@
+[
+  {
+    "id": "abc",
+    "title": "Motivational Quote",
+    "quote": "A man is his own easiest dupe, for what he wishes to be true he generally believes to be true."
+  },
+  {
+    "id": "234",
+    "title": "Romantic Quote",
+    "quote": "aik lrki ko dekha to esa laga"
+  },
+  {
+    "id": "456",
+    "title": "Inspirational Quote",
+    "quote": "dkasjkdasjiofasjoiajs"
+  },
+  { "title": "abc title",
+    "quote": "bla bla bla ....",
+    "author": "ashar ali"
+  }
+]
