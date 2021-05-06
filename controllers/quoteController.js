@@ -68,6 +68,8 @@ exports.updateQuotes = async (req, res) => {
   // read quotes from file
   var quotes = await readFile(`${__dirname}/../data/quotes.json`, "utf-8");
 
+  // find quote with provided id and modify
+
   var updatedQuotes = quotes.map((quote) => {
     if (quote.id === quoteId) {
       return {
@@ -98,15 +100,20 @@ exports.deleteQuotes = async (req, res) => {
 
   // read quotes from file
   var quotes = await readFile(`${__dirname}/../data/quotes.json`, "utf-8");
-  var updatedQuotes = quotes.filter(({ id }) => id !== quoteId);
-  console.log(updatedQuotes);
 
+  // filter quote with provided id
+
+  var updatedQuotes = quotes.filter(({ id }) => id !== quoteId);
+
+  // write file with updated data
+  await writeFile(`${__dirname}/../data/quotes.json`, updatedQuotes);
+  var deletedQuote = quotes.find(({ id }) => id === quoteId);
   try {
     res.status(200).json({
-      status:"success",
-      data:{
-          quotes:updatedQuotes
-      }
+      status: "success",
+      data: {
+        quotes: deletedQuote,
+      },
     });
   } catch (error) {
     console.log(error);
